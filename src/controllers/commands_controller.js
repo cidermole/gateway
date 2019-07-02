@@ -124,7 +124,8 @@ CommandsController.post('/', async (request, response) => {
                                           'level'),
   };
 
-  if (['on', 'off'].includes(payload.value)) {
+  // 'off' is sometimes understood as 'of'
+  if (['on', 'off', 'of'].includes(payload.value)) {
     if (!properties.on) {
       invalidForDevice();
       return;
